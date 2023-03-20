@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Machine Learning with Python - Module 2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Katrien Antonio &amp; Jonas Crevecoeur &amp; Roel Henckaerts" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="css/metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/my-css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Machine Learning with Python - Module 2
+## Hands-on webinar
+<html>
+<div style="float:left">
+
+</div>
+<hr align='center' color='#116E8A' size=1px width=97%>
+</html>
+### Katrien Antonio &amp; Jonas Crevecoeur &amp; Roel Henckaerts
+### <a href="https://github.com/katrienantonio/hands-on-machine-learning-Python-module-2">hands-on-machine-learning-Python-module-2</a> | March, 2023
+
+---
+
+
+class: inverse, center, middle
+name: prologue
+
+
+
+
+
+
+# Prologue
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+name: introduction
+
+# Introduction
+
+### Course
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/&gt;&lt;/svg&gt; https://github.com/katrienantonio/hands-on-machine-learning-Python-module-2
+
+The course repo on GitHub, where you can find the data sets, lecture sheets, Google Colab links and Python notebooks.
+
+--
+
+### Us
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/&gt;&lt;/svg&gt; [https://katrienantonio.github.io/](https://katrienantonio.github.io/) &amp; [LinkedIn profile Jonas](https://www.linkedin.com/in/jonascrevecoeur/) &amp; [LinkedIn profile Roel](https://www.linkedin.com/in/roelhenckaerts)
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/&gt;&lt;/svg&gt; [katrien.antonio@kuleuven.be](mailto:katrien.antonio@kuleuven.be) &amp; [jonas.crevecoeur@kuleuven.be](mailto:jonas.crevecoeur@kuleuven.be) &amp;  [roel.henckaerts@kuleuven.be](mailto:roel.henckaerts@kuleuven.be)
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 640 512"&gt;&lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"/&gt;&lt;/svg&gt; (Katrien) Professor in insurance data science
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 640 512"&gt;&lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"/&gt;&lt;/svg&gt; (Jonas) PhD in insurance data science, now data science consultant at UHasselt and KULeuven
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 640 512"&gt;&lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"/&gt;&lt;/svg&gt; (Roel) PhD in insurance data science, now senior data scientist at [Prophecy Labs](https://www.prophecylabs.com/)
+
+
+---
+
+name: why-this-course # inspired by Grant McDermott intro lecture
+
+# Why this course?
+
+### The goals of this course .font140[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M505.05 19.1a15.89 15.89 0 0 0-12.2-12.2C460.65 0 435.46 0 410.36 0c-103.2 0-165.1 55.2-211.29 128H94.87A48 48 0 0 0 52 154.49l-49.42 98.8A24 24 0 0 0 24.07 288h103.77l-22.47 22.47a32 32 0 0 0 0 45.25l50.9 50.91a32 32 0 0 0 45.26 0L224 384.16V488a24 24 0 0 0 34.7 21.49l98.7-49.39a47.91 47.91 0 0 0 26.5-42.9V312.79c72.59-46.3 128-108.4 128-211.09.1-25.2.1-50.4-6.85-82.6zM384 168a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"/&gt;&lt;/svg&gt;]
+
+--
+
+* develop practical .KULbginline[machine learning (ML) foundations in Python] 
+
+--
+
+* .KULbginline[fill in the gaps] left by traditional training in actuarial science or econometrics
+
+--
+
+* focus on the use of ML methods for the .KULbginline[analysis of frequency + severity data], but also .KULbginline[non-standard data] such as images 
+
+--
+
+* .KULbginline[explore] a substantial range of .KULbginline[methods (and data types)] (from GLMs to deep learning), but - most importantly - .KULbginline[build foundation] so that you can explore other methods (and data types) yourself. 
+
+--
+
+&lt;br&gt;
+
+&gt; *"In short, we will cover things that we wish someone had taught us in our undergraduate programs."* 
+&gt; &lt;br&gt;
+&gt; .font80[This quote is from the [Data science for economists course](http://github.com/uo-ec607/lectures) by Grant McDermott.]
+
+---
+
+# Module 2's Outline
+
+.pull-left[
+
+* [Prologue](#prologue)
+
+* [Decision tree](#tree)
+
+  - what is tree-based machine learning?
+  - tree basics: structure, terminology, growing process
+  - examples on regression and classification
+  - tuning via grid search and cross-validation
+  - modelling claim frequency and severity data with trees
+  - with `scikit-Learn` 
+  
+* [Interpretation tools](#interpret)
+
+ - feature importance
+ - partial dependence plot
+ - with `scikit-Learn` 
+ 
+]
+
+.pull-right[
+
+* [Bagging](#bag) 
+
+ - from a single tree to Bootstrap Aggregating
+ - out-of-bag error
+ - with `scikit-Learn` 
+
+* [Random forest](#rf)
+
+ - from bagging to random forests
+ - tuning
+ - with `scikit-Learn` 
+
+* [Gradient boosting](#gbm)
+
+ - (stochastic) gradient boosting with trees
+ - training process and tuning parameters
+ - modelling claim frequencies and severities
+ - with `scikit-Learn`  and `xgboost`
+
+]
+
+
+---
+name: map-ML-world
+class: right, middle, clear
+background-image: url("img/map_ML_world.jpg")
+background-size: 45% 
+background-position: left
+
+
+.KULbginline[Some roadmaps to explore the ML landscape...] 
+
+&lt;img src = "img/AI_ML_DL.jpg" height = "350px" /&gt;
+
+.font60[Source: [Machine Learning for Everyone In simple words. With real-world examples. Yes, again.](https://vas3k.com/blog/machine_learning/)]
+
+
+---
+
+name: map-ML-world
+class: right, middle, clear
+background-image: url("img/main_types_ML.jpg")
+background-size: 85% 
+background-position: middle
+
+---
+
+# Background reading
+
+.left-column[
+
+&lt;br&gt;
+
+&lt;img src = "img/naaj.png" height = "350px" /&gt;
+
+]
+
+.right-column[
+
+Henckaerts et al. (2020) paper on [Boosting insights in insurance tariff plans with tree-based machine learning methods](https://katrienantonio.github.io/publication/2020-boosting/)
+
+- full algorithmic details of regression trees, bagging, random forests and gradient boosting machines
+- with focus on claim frequency and severity modelling
+- including interpretation tools (VIP, PDP, ICE, H-statistic)
+- model comparison (GLMs, GAMs, trees, RFs, GBMs) 
+- managerial tools (e.g. loss ratio, discrimination power).
+
+The paper comes with two notebooks, see [examples tree-based paper](https://github.com/henckr/treeML) and [severity modelling](https://github.com/henckr/sevtree).
+
+The paper comes with an R package {distRforest} for fitting random forests on insurance data, see [distRforest](https://github.com/henckr/distRforest).
+
+]
+
+---
+
+# What is tree-based machine learning?
+
+.KULbginline[Machine learning (ML)] according to [Wikipedia](https://en.wikipedia.org/wiki/Machine_learning):
+
+&gt; *"Machine learning algorithms build a .hi-pink[mathematical model] based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to perform the task."*
+
+&gt; This definition goes all the way back to [Arthur Samuel](https://en.wikipedia.org/wiki/Arthur_Samuel), who coined the term "machine learning" in 1959.
+
+--
+
+.KULbginline[Tree-based ML] makes use of a .KULbginline[tree] as building block for the mathematical model.
+
+&lt;img src="img/tree_based.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+--
+
+So, a natural question to start from is: what is a .KULbginline[tree]?
+
+---
+
+
+
+class: inverse, center, middle
+name: tree-basic
+
+# Tree basics
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+
+class: clear
+background-image: url(img/decision_tree.jpg)
+background-size: contain
+
+
+---
+
+# Tree structure and terminology
+
+The top of the tree contains all available training observations: the .hi-pink[root node].
+
+--
+
+We .KULbginline[partition] the data into homogeneous non-overlapping subgroups: the .hi-pink[nodes].
+
+--
+
+We create subgroups via .KULbginline[simple yes-no questions].
+
+--
+
+A tree then predicts the output in a .hi-pink[leaf node] as follows:
+
+  + average of the response for regression
+  + majority voting for classification.
+
+
+---
+
+# Tree structure and terminology
+
+The top of the tree contains all available training observations: the .hi-pink[root node].
+
+
+We .KULbginline[partition] the data into homogeneous non-overlapping subgroups: the .hi-pink[nodes].
+
+&lt;img src="img/tree_example.jpg" width="50%" style="float:right; padding:10px" style="display: block; margin: auto;" /&gt;
+
+We create subgroups via .KULbginline[simple yes-no questions].
+
+A tree then predicts the output in a .hi-pink[leaf node] as follows:
+
+  + average of the response for regression
+  + majority voting for classification.
+  
+Different types of nodes:
+
+&lt;img src="img/tree_legend.jpg" width="27%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Tree growing process
+
+
+A golden standard is the .KULbginline[C]lassification .KULbginline[A]nd .KULbginline[R]egression .KULbginline[T]ree algorithm: .KULbginline[CART] (Breiman et al., 1984).
+
+--
+
+CART uses .KULbginline[binary recursive partitioning] to split the data in subgroups.
+
+--
+
+In each node, we search for the best feature to .KULbginline[partition] the data into two regions: R&lt;sub&gt;1&lt;/sub&gt; and R&lt;sub&gt;2&lt;/sub&gt; (hence, .KULbginline[binary]).
+
+--
+
+.font140[.KULbginline[Take-away]] .font160[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 576 512"&gt;&lt;path d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z"/&gt;&lt;/svg&gt;] &amp;nbsp; - &amp;nbsp; what is .KULbginline[best?] 
+
+Minimize the .KULbginline[overall loss] between observed responses and leaf node prediction
+  + overall loss = loss in region R&lt;sub&gt;1&lt;/sub&gt; + loss in region R&lt;sub&gt;2&lt;/sub&gt;
+  + for regression: mean squared or absolute error, deviance,...
+  + for classification: cross-entropy, Gini index,...
+
+--
+
+After splitting the data, this process is repeated for region R&lt;sub&gt;1&lt;/sub&gt; and R&lt;sub&gt;2&lt;/sub&gt; separately (hence, .KULbginline[recursive]).
+
+--
+
+Repeat until .KULbginline[stopping criterion] is satisfied, e.g., maximum depth of a tree or minimum loss improvement.
+
+---
+
+#  How deep should a tree be?
+
+.pull-left[
+
+The .KULbginline[bias-variance trade off]:
+  - a .hi-pink[shallow] tree will underfit: 
+  &lt;br&gt;
+  bias .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;] and variance .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] &lt;br&gt;
+  - a .hi-pink[deep] tree will overfit: 
+  &lt;br&gt;
+  bias .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] and variance .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;] &lt;br&gt;
+  - find right .KULbginline[balance] between bias and variance!
+
+Typical approach to get the right fit:
+  - fit an overly complex .KULbginline[deep tree]
+  - .KULbginline[prune] the tree to find the .KULbginline[optimal subtree].
+  
+How to .KULbginline[prune?]
+]
+
+
+---
+
+#  How deep should a tree be?
+
+.pull-left[
+
+The .KULbginline[bias-variance trade off]:
+  - a .hi-pink[shallow] tree will underfit: 
+  &lt;br&gt;
+  bias .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;] and variance .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] &lt;br&gt;
+  - a .hi-pink[deep] tree will overfit: 
+  &lt;br&gt;
+  bias .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] and variance .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;] &lt;br&gt;
+  - find right .KULbginline[balance] between bias and variance!
+
+Typical approach to get the right fit:
+  - fit an overly complex .KULbginline[deep tree]
+  - .KULbginline[prune] the tree to find the .KULbginline[optimal subtree].
+  
+How to .KULbginline[prune?]
+
+]
+
+
+.pull-right[
+
+
+
+Look for the smallest subtree that minimizes a .KULbginline[penalized loss function]:
+  `$$\min\{f_{\textrm{loss}} + \alpha \cdot |T|\}$$`
+  + loss function `\(f_{\textrm{loss}}\)`
+  + complexity parameter `\(\alpha\)`
+  + number of leaf nodes `\(|T|\)`.
+
+A shallow tree results when `\(\alpha\)` is large and a deep tree when `\(\alpha\)` is small.
+  
+Perform .hi-pink[cross-validation] on the complexity parameter: 
+  + `ccp_alpha` is the complexity parameter in {sklearn}
+  + `ccp_alpha` is `\(\alpha\)` divided by `\(f_{\text{loss}}\)` evaluated in root node.
+  
+Cfr. tuning of the regularization paramater in lasso regression from .KULbginline[Module 1].
+]
+
+
+---
+
+# Decision trees with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can fit decision trees in Python with `scikit-learn`.
+
+We will explore the following aspects:
+- fit simple decision trees to regression and classification toy examples
+- try out different parameter settings and check the effect on our tree
+- tune towards the optimal parameter values by grid search cross-validation
+
+
+---
+
+class: inverse, center, middle
+name: freq-sev-tree
+
+# Claim frequency and severity modeling with trees
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+
+# Claim frequency prediction on the MTPL data
+
+Recall the MTPL data set introduced in Module 1.
+
+The .KULbginline[Poisson GLM] is a classic approach for modelling .KULbginline[claim frequency] data.
+
+How to deal with claim counts in a decision tree?
+
+Use the .KULbginline[Poisson deviance] as .hi-pink[loss function]:
+ 
+`$$\begin{eqnarray*}
+D^{\textrm{Poi}} = 2 \cdot \sum_{i=1}^{n} \color{#FFA500}{y}_i \cdot \ln \frac{\color{#FFA500}{y}_i}{\textrm{expo}_i \cdot \hat{\color{#3b3b9a}{f}}(\color{#e64173}{x}_i)} - \{\color{#FFA500}{y}_i - \textrm{expo}_i \cdot \hat{\color{#3b3b9a}{f}}(\color{#e64173}{x}_i)\},
+\end{eqnarray*}$$`
+
+with `\(\textrm{expo}\)` the exposure measure.
+
+And what about claim severities?
+ 
+
+---
+
+# Actuarial trees with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can fit claim frequency and severity trees in Python with `scikit-learn`.
+
+
+
+---
+
+class: inverse, center, middle
+name: interpret
+
+# Interpretation tools
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# Interpreting a tree model
+
+.pull-left[
+
+.KULbginline[Interpretability] depends on the .KULbginline[size of the tree]
+  + is easy with a .hi-pink[shallow] tree but hard with a .hi-pink[deep] tree 
+  + luckily there are some .KULbginline[tools] to help you.
+
+.KULbginline[Feature importance]
+  + identify the most .hi-pink[important] features
+  + implemented in the package {vip}. 
+
+.KULbginline[Partial dependence plot]
+  + measure the .hi-pink[marginal effect] of a feature
+  + implemented in the package {pdp}.
+
+Excellent source on interpretable machine learning: [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/) book by Christophe Molnar.
+]
+
+
+---
+
+# Feature importance and partial dependence
+
+.left-column[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src = "img/molnar.png" height = "350px" /&gt;
+
+
+
+]
+
+.right-column[
+
+With .KULbginline[feature importance]: 
+
+* sum improvements in loss function over all splits on a variable `\(x_{\ell}\)`
+* important variables appear high and often in a tree.
+
+With .KULbginline[partial dependence]: 
+
+* univariate
+
+`$$\bar{f}_{\ell}(x_{\ell}) = \frac{1}{n} \sum_{i=1}^n f_{\text{tree}}(x_{\ell},\boldsymbol{x}^{i}_{-\ell})$$`
+
+* bivariate
+
+`$$\bar{f}_{k, \ell}(x_k, x_{\ell}) = \frac{1}{n} \sum_{i=1}^n f_{\text{tree}}(x_k, x_{\ell}, \boldsymbol{x}^{i}_{-k, \ell})$$`
+
+* marginal effects, interactions can stay hidden!
+
+]
+
+
+---
+
+# Interpretation tools with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can explain decision trees in Python with `scikit-learn`.
+
+
+
+---
+
+# That's a wrap on single trees!
+
+.pull-left[
+
+.font140[.KULbginline[Advantages]] &amp;nbsp; &amp;nbsp; .font200[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M0 256c0 137 111 248 248 248s248-111 248-248S385 8 248 8 0 119 0 256zm200-48c0 17.7-14.3 32-32 32s-32-14.3-32-32 14.3-32 32-32 32 14.3 32 32zm158.5 16.5c-14.8-13.2-46.2-13.2-61 0L288 233c-8.3 7.4-21.6.4-19.8-10.8 4-25.2 34.2-42.1 59.9-42.1S384 197 388 222.2c1.7 11.1-11.4 18.3-19.8 10.8l-9.7-8.5zM157.8 325.8C180.2 352.7 213 368 248 368s67.8-15.4 90.2-42.2c13.6-16.2 38.1 4.2 24.6 20.5C334.3 380.4 292.5 400 248 400s-86.3-19.6-114.8-53.8c-13.5-16.3 11.2-36.7 24.6-20.4z"/&gt;&lt;/svg&gt;]
+
+* Shallow tree is easy to .KULbginline[explain] graphically.
+
+* Closely mirrors the human .KULbginline[decision-making] process.
+
+* Handles all types of features .KULbginline[without] pre-processing.
+
+* .KULbginline[Fast] and very scalable to big data.
+
+* .KULbginline[Automatic] variable selection.
+
+* Surrogate splits can handle .KULbginline[missing] data.
+]
+
+---
+
+# That's a wrap on single trees!
+
+.pull-left[
+
+.font140[.KULbginline[Advantages]] &amp;nbsp; &amp;nbsp; .font200[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M0 256c0 137 111 248 248 248s248-111 248-248S385 8 248 8 0 119 0 256zm200-48c0 17.7-14.3 32-32 32s-32-14.3-32-32 14.3-32 32-32 32 14.3 32 32zm158.5 16.5c-14.8-13.2-46.2-13.2-61 0L288 233c-8.3 7.4-21.6.4-19.8-10.8 4-25.2 34.2-42.1 59.9-42.1S384 197 388 222.2c1.7 11.1-11.4 18.3-19.8 10.8l-9.7-8.5zM157.8 325.8C180.2 352.7 213 368 248 368s67.8-15.4 90.2-42.2c13.6-16.2 38.1 4.2 24.6 20.5C334.3 380.4 292.5 400 248 400s-86.3-19.6-114.8-53.8c-13.5-16.3 11.2-36.7 24.6-20.4z"/&gt;&lt;/svg&gt;]
+
+* Shallow tree is easy to .KULbginline[explain] graphically.
+
+* Closely mirrors the human .KULbginline[decision-making] process.
+
+* Handles all types of features .KULbginline[without] pre-processing.
+
+* .KULbginline[Fast] and very scalable to big data.
+
+* .KULbginline[Automatic] variable selection.
+
+* Surrogate splits can handle .KULbginline[missing] data.
+]
+
+.pull-right[
+
+.font140[.KULbginline[Disadvantages]] &amp;nbsp; &amp;nbsp; .font200[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm80 168c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm-160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm170.2 218.2C315.8 367.4 282.9 352 248 352s-67.8 15.4-90.2 42.2c-13.5 16.3-38.1-4.2-24.6-20.5C161.7 339.6 203.6 320 248 320s86.3 19.6 114.7 53.8c13.6 16.2-11 36.7-24.5 20.4z"/&gt;&lt;/svg&gt;]
+
+* Tree uses .KULbginline[step] functions to approximate the effect.
+
+* Greedy heuristic approach chooses .KULbginline[locally] optimal split (i.e., based on all previous splits).
+
+* Data becomes .KULbginline[smaller] and smaller down the tree.
+
+* All this results in .KULbginline[high variance] for a tree model...
+
+* ... which harms .KULbginline[predictive performance].
+]
+
+---
+
+class: inverse, center, middle
+name: tree
+
+# From a single tree to ensembles of trees
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# Ensembles of trees
+
+Remember: prediction error = bias + variance + irreducible error.
+
+--
+
+Good .KULbginline[predictive performance] requires low bias .KULbginline[AND] low variance.
+
+--
+
+Two popular .hi-pink[ensemble] algorithms (that can be applied to any type of model, not just trees) are:
+
+--
+
+.pull-left[
+
+.font120[.KULbginline[Bagging]] (Breiman, 1996)
+
+
+* low .hi-pink[bias] via detailed individual models 
+* (think: deep trees)
+* low .hi-pink[variance] via averaging of those models
+* (think: in parallel)
+ 
+
+]
+
+.pull-right[
+
+.font120[.KULbginline[Boosting]] (Friedman, 2001)
+
+* low .hi-pink[variance] via simple individual models 
+* (think: stumps)
+* low .hi-pink[bias] by incrementing the model sequentially
+* (think: sequentially).
+
+]  
+
+&lt;br&gt; 
+
+.KULbginline[Random forest] (Breiman, 2001) is then a modification on bagging for trees to further improve the variance reduction.
+
+---
+
+# Model comparison on claim frequency data 
+
+.left-column[
+
+Detailed discussion in our North American Actuarial Journal (2021) paper.
+
+Analyzing frequency as well as severity data.
+
+
+Picture taken from [Henckaerts et al. (2021)](https://arxiv.org/abs/1904.10890).
+
+]
+
+.right-column[
+
+.center[.KULbginline[Boosting &gt; Random forest &gt; Bagging &gt; Decision tree]]
+
+
+&lt;img src="img/oos_freq_poiss.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+
+class: inverse, center, middle
+name: bag
+
+# Introducing bagging
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+class: clear
+background-image: url(img/bagging.jpg)
+background-size: contain
+
+---
+
+# Bagging or Bootstrap AGGregatING
+
+.pull-left[
+
+* build a lot of different .KULbginline[base learners] on bootstrapped samples of the data
+
+* .KULbginline[combine] their predictions
+
+* model .KULbginline[averaging] helps to:
+  + reduce variance
+  + avoid overfitting.
+  
+* bagging works best for .KULbginline[base learners] with:
+  + .hi-pink[low bias] and .hi-pink[high variance]
+  + for example: deep decison trees.
+
+
+]
+
+--
+
+.pull-right[
+
+.KULbginline[*Bagging with trees?*]
+
+* do .KULbginline[B] times:
+    + create bootstrap sample by drawing with replacement from the original data
+    + fit a deep tree to the bootstrap sample.
+  
+* .KULbginline[combine] the predictions of these B trees
+  + .KULbginline[average] prediction for regression
+  + .KULbginline[majority] vote for classification.
+]
+
+
+---
+
+# Out-of-bag (OOB) error
+
+.pull-left[
+Bootstrap samples are constructed .KULbginline[with] replacement.
+
+Some observations are .KULbginlnine[not present] in a bootstrap sample: 
+  + they are called the .KULbginline[out-of-bag] observations
+  + use those to calculate the out-of-bag (OOB) error
+  + measures .KULbginline[hold-out] error like cross-validation does.
+
+Advantage of OOB over cross-validation?
+  + the OOB error comes .KULbginline[for free] with bagging.
+]
+
+---
+
+# Bagging trees with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can perform bagging with decision trees in Python with `scikit-learn`.
+
+
+---
+
+class: inverse, center, middle
+name: rf
+
+# From bagging to random forests
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# Problem of dominant features
+
+A downside of bagging is that .KULbginline[dominant features] can cause individual trees to have a .KULbginline[similar structure].
+  
+This is known as .KULbginline[tree correlation].
+
+--
+
+Remember the .hi-pink[feature importance] results discussed earlier for the MTPL data? 
+  
+  + `bm` is a very dominant variable
+  + `ageph` was rather important
+  + `power` also, but to a lesser degree.
+
+--
+
+Problem?
+  
+  + bagging gets its predictive performance from .hi-pink[variance reduction]
+  + however, this reduction .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] when tree correlation .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;]
+  + dominant features therefore .hi-pink[hurt] the preditive performance of a bagged ensemble!
+
+  
+---
+
+# Random forest
+
+.KULbginline[Random forest] is a modification on bagging to get an ensemble of .hi-pink[de-correlated] trees.
+
+--
+
+Process is very similar to bagging, with one small .KULbginline[trick]:
+  + before each split, select a .hi-pink[subset of features] at random as candidate features for splitting
+  + this essentially .KUlbginline[decorrelates] the trees in the ensemble, improving predictive performance
+  + the number of candidates is typically considered a .KUlbginline[tuning parameter].
+
+--
+
+.KULbginline[Bagging] introduces randomness in the .hi-pink[rows] of the data.
+
+--
+
+.KULbginline[Random forest] introduces randomness in the .KULbginline[rows] and .KULbginline[columns] of the data.
+
+---
+
+# Random forest with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can build random forests in Python with `scikit-learn`.
+
+
+
+---
+
+class: inverse, center, middle
+name: gbm
+
+# (Stochastic) Gradient Boosting Machines
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+class: clear
+background-image: url(img/boosting.jpg)
+background-size: contain
+
+---
+
+# Boosting vs. Bagging
+
+Similar to bagging, boosting is a .KULbginline[general technique] to create an .KULbginline[ensemble] of any type of base learner.
+
+--
+
+.pull-left[
+
+.font140[.KULbginline[With bagging]]:
+
+* .KULbginline[strong base learners]
+  + low bias, high variance
+  + for example: deep trees
+  
+* .KULbginline[variance reduction] through .KULbginline[averaging]
+
+* .KULbginline[parallel] approach
+  + trees not using information from each other
+  + performance thanks to .hi-pink[averaging]
+  + low risk for overfitting.
+]
+
+.pull-right[
+
+.font140[.KULbginline[With boosting]]:
+
+* .KULbginline[weak base learners]
+  + low variance, high bias
+  + for example: stumps
+  
+* .KULbginline[bias reduction] in ensemble through .KULbginline[updating]
+
+* .KULbginline[sequential] approach
+  + current tree uses information from all past trees
+  + performance thanks to .hi-pink[rectifying] past mistakes
+  + high risk for overfitting.
+]
+
+---
+
+# GBM: stochastic gradient boosting with trees
+
+.left-column[
+We focus on .KULbginline[GBM]:
+  + with .KULbginline[decision trees]
+  
+  + *stochastic* by .KULbginline[subsampling] in the rows (and columns) of the data
+  
+  + *gradient* by optimizing the loss function via .KULbginline[gradient descent].
+]
+
+.right-column[
+
+&lt;img src="img/gradient_descent.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;br&gt; Figure 12.3 from Boehmke &amp; Greenwell [Hands-on machine learning with R](https://bradleyboehmke.github.io/HOML/gbm.html).
+]
+
+---
+
+# Stochastic gradient descent
+
+The .KULbginline[learning rate] (also called step size) is very important in gradient descent
+  + if too big &lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 448 512"&gt;&lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/&gt;&lt;/svg&gt; likely to .hi-pink[overshoot] the optimal solution
+  + if too small &lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 448 512"&gt;&lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/&gt;&lt;/svg&gt; .hi-pink[slow] process to reach the optimal solution
+  
+.center[
+&lt;img src="img/learning_rate.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;br&gt; Figure 12.4 from Boehmke &amp; Greenwell [Hands-on machine learning with R](https://bradleyboehmke.github.io/HOML/gbm.html).
+]
+
+--
+
+.KULbginline[Subsampling] allows to escape plateaus or local minima for .hi-pink[non-convex] loss functions.
+
+---
+
+# GBM training process
+
+.KULbginline[Initialize] the model fit with a global average and calculate .hi-pink[pseudo-residuals].
+
+--
+
+Do the following .KULbginline[B] times:
+  + fit a tree of a pre-specified depth to the .KULbginline[pseudo-residuals]
+  + .KULbginline[update] the model fit and pseudo-residuals with a .KULbginline[shrunken] version 
+  + shrinkage to slow down learning and .KULbginline[prevent] overfitting.
+
+--
+
+The model fit after .KULbginline[B] iterations is the .KULbginline[end product].
+
+--
+
+We will explore two .KULbginline[popular] libraries for stochastic gradient boosting 
+  + {sklearn}: standard for regression and classification, but not the fastest
+  + {xgboost}: efficient implementation with some .hi-pink[extra] elements, for example regularization.
+
+---
+
+# GBM parameters
+
+A lot of parameters at our disposal to .KULbginline[tweak] the GBM.
+
+--
+
+Some have a .KULbginline[big impact] on the performance and should therefore be .KULbginline[properly tuned]:
+  + number of trees: depends very much on the .hi-pink[use case], ranging from 100's to 10 000's
+  + tree depth: .hi-pink[low] values are preferred for boosting to obtain weak base learners
+  + learning rate: typically set to the lowest possible value that is .hi-pink[computationally] feasible.
+
+--
+
+.KULbginline[Rule of thumb]: if learning rate .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"/&gt;&lt;/svg&gt;] then number of trees .font150[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"/&gt;&lt;/svg&gt;].
+
+
+---
+
+# GBM with scikit-learn &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can build GBMs in Python with `scikit-learn`.
+
+
+
+---
+
+class: inverse, center, middle
+name: XGBoost
+
+# XGBoost
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# XGBoost
+
+.KULbginline[XGBoost] stands for e.KULbginline[X]treme .KULbginline[G]radient .KULbginline[Boost]ing.
+
+--
+
+Optimized gradient boosting library: efficient, flexible and portable across multiple languages.
+
+--
+
+XGBoost follows the same general boosting approach as GBM, but adds some .KULbginline[extra elements]:
+  + .KULbginline[regularization]: extra protection against overfitting (see Lasso and glmnet on Day 1)
+  + .KULbginline[early stopping]: stop model tuning when improvement slows down
+  + .KULbginline[parallel processing]: can deliver huge speed gains
+  + different .KULbginline[base learners]: boosted GLMs are a possibility
+  + multiple .KULbginline[languages]: implemented in R, Python, C++, Java, Scala and Julia
+
+--
+
+XGBoost also allows to .KULbginline[subsample columns] in the data, much like the random forest did
+  + GBM only allowed subsampling of rows
+  + XGBoost therefore .hi-pink[unites] boosting and random forest to some extent.
+
+--
+
+Very .KULbginline[flexible] method with many many parameters, full list can be found [here](https://xgboost.readthedocs.io/en/latest/parameter.html).  
+
+
+---
+
+# GBM with xgboost &lt;img src="img/colab.png" class="title-hex"&gt;
+
+Let's go to our Colab notebook and learn how we can build GBMs in Python with `xgboost`.
+
+
+---
+
+name: wrap-up
+
+# Thanks!  &lt;img src="img/xaringan.png" class="title-hex"&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+Slides created with the R package [xaringan](https://github.com/yihui/xaringan).
+&lt;br&gt; &lt;br&gt; &lt;br&gt;
+Course material available via 
+&lt;br&gt;
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/&gt;&lt;/svg&gt; https://github.com/katrienantonio/hands-on-machine-learning-Python-module-2
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLanguage": "R",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"highlightSpans": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
