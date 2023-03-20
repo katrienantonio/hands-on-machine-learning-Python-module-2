@@ -84,7 +84,7 @@ In two sessions we cover:
 - claim frequency and severity modeling 
 - XGBoost
 
-Download lecture sheets in [pdf](https://katrienantonio.github.io/hands-on-machine-learning-R-module-2/sheets/ML_part2_Python.pdf). 
+Download lecture sheets in [pdf](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.pdf). 
 
 ## Software Requirements
 
