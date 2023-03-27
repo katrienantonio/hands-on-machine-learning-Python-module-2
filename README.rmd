@@ -22,7 +22,7 @@ library(emo)
 
 by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 
-Course materials for the *Hands-on Machine Learning with Python* course (December 2021 - January 2022).
+Course materials for the *Hands-on Machine Learning with Python* course (March - April 2023).
 
 `r emo::ji("calendar")` Module 1 on March 7 & 14, 2023, Module 2 on March 21 & 28, 2023 and Module 3 on April 18 & April 25, 2023
 <br>
@@ -60,7 +60,7 @@ The schedule will gradually be completed over the next days. The detailed schedu
 | | | 10.40 - 11.00 | Toy example for classification | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#toy-class) |  |
 | | | 11.00 - 11.30 | Claim frequency and severity modeling  | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#freq-sev-tree) |  |
 | | | 11.40 - 12.30 | Interpretation tools | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#interpret) |  |
-| Module 2 |  Session 2  | 09.30 - 09.50 | Interpretation tools | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#interpret) |  | |
+| Module 2 |  Session 2  | 09.30 - 09.50 | Interpretation tools | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#interpret) | [Colab](https://colab.research.google.com/drive/1nt8nMIL-8hkpy50Om2wBn-AwjZaY7Is0?usp=sharing#scrollTo=rLwSpISOFdnQ) | [notebook](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/notebooks/Hands_on_ML_with_Python_with_YourTurns_Module_2_Session_2.ipynb) |
 | | | 09.50 - 10.30 | Bagging | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-R-module-2/sheets/ML_part2_Python.html#bag) |  | |
 | | | 10.40 - 11.10 | Random forests | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#rf) | | |
 | | | 11.10 - 11.30 | Gradient boosting | [sheets](https://katrienantonio.github.io/hands-on-machine-learning-Python-module-2/sheets/ML_part2_Python.html#gbm) |  | |
